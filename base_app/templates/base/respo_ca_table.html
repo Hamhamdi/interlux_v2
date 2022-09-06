@@ -1,0 +1,74 @@
+{%extends 'datatable.html'%}
+
+{%block content%}
+
+                
+
+                {%if request.user.role == 'chargee affaire'%}
+          
+                    <a class="btn btn-outline-primary" href="{% url  'respo_ca_add'%}" >Ajouter</a>
+
+                    
+                {%endif%}
+<div class="row my-4">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-body">
+              <table class="table datatables" id="dataTable-1">
+               
+
+                <thead>
+                 
+                  <tr>
+                    <th>N Dossier</th>
+                    <th>Fournisseur</th>
+                    <th>Nom</th>
+                    <th>Client</th>
+                    <th>Date Vcl</th>
+
+                    {%if request.user.role == 'chargee affaire'%}
+                    
+                    <th>Action</th>
+                    {%endif%}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for field in user_ca %}
+                  <tr>
+                    <td>{{field.n_Dossier}}</td>
+                    <td>{{field.fournisseur}}</td>
+                    <td>{{field.nom}}</td>
+                    <td>{{field.client}}</td>
+                    <td>{{field.date_VCL}}</td>
+
+                    
+
+                    {%if request.user.role == 'chargee affaire'%}
+
+                    <td>
+                      <button
+                        class="btn btn-sm dropdown-toggle more-horizontal"
+                        type="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <span class="text-muted sr-only">Action</span>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <a class="dropdown-item" href="#">Remove</a>
+                        <a class="dropdown-item" href="#">Assign</a>
+                      </div>
+                    </td>
+                    {%endif%}
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+            
+{%endblock content%}

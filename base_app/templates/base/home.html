@@ -1,0 +1,122 @@
+{%extends 'main.html'%}
+
+{%block content%}
+{%include 'sidebar.html'%}
+<main role="main" class="main-content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="mb-2 page-title">Statut Bar</h2>
+                <p class="card-text">
+                    here we will add status bar
+                </p>
+                <a class="btn btn-outline-primary" href="{% url  'respo_ca_add'%}">Ajouter</a>
+                {% for x in user_ca %}
+                
+
+                {%endfor%}
+        <div class="row my-4">
+          <!-- Small table -->
+          <div class="col-md-12">
+            <div class="card shadow">
+              <div class="card-body">
+                <!-- table -->
+                <table class="table datatables" id="dataTable-1">
+                  <thead>
+                    <tr>
+                      <th>  N Dossier</th>
+                      <th>Fournisseur</th>
+                      <th>Nom</th>
+                      <th>Client</th>
+                      <th>Date Vcl</th>
+
+                      <th>Statut Importation</th>
+                      <th>
+                        Date transmission de la commande au service logistique
+                      </th>
+                      <th>Code Fournisseur Sage</th>
+                      <th>Reference bon de commande Sage</th>
+                      <th>Catégorie commande</th>
+
+                      <th>Date PickUp</th>
+                      <th>FreightForward</th>
+                      <th>Mode Transport</th>
+                      <th>Transiter</th>
+
+                      <th>
+                        Date clôture Administrative du Payement Fournisseur
+                      </th>
+                      <th>
+                        Date clôture administrative du Payement des Partenaires
+                      </th>
+
+                      <th>
+                        Date Clôture Administrative du Cout de Revient Sage
+                      </th>
+
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                   
+
+                    <tr>
+
+                      <td><a href="">{{field.n_Dossier}}</a></td>
+                      <td>{{field.fournisseur}}</td>
+                      <td>{{name}}</td>
+                      <td>{{field.client}}</td>
+                      <td>{{field.date_VCL}}</td>
+                      
+ 
+                      <td>{{field.statut_Imp}}</td>
+                      <td>{{field.date_TCS}}</td>
+                      <td>{{field.code_Four_Sage}}</td>
+                      <td>{{field.ref_Bon_Cmd_Sage}}</td>
+                      <td>{{field.cat_Cmd}}</td>
+ 
+                      <td>{{field.date_pickup }}</td>
+                      <td>{{field.freightforward }}</td>
+                      <td>{{field.mode_trans }}</td>
+                      <td>{{field.transitaire}}</td>
+
+                     
+        
+                      <td>{{field.date_capf}}</td>
+                      <td>{{field.date_capp}}</td>
+                    
+
+                      <td>{{field.date_cacrs}}</td> 
+
+                    
+                      <td>
+                        <button
+                          class="btn btn-sm dropdown-toggle more-horizontal" type="button"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <span class="text-muted sr-only">Action</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <a class="dropdown-item" href="#">Edit</a>
+                          <a class="dropdown-item" href="#">Remove</a>
+                         </div>
+                      </td>
+                    </tr>
+
+                    
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{%endblock content%}
